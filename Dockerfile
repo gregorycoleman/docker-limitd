@@ -3,15 +3,12 @@ FROM debian:latest
 
 MAINTAINER Greg Coleman <gregory.m.coleman@gmail.com>
 
-
 # Setup aptitude to install from the Auth0 repo
 #
-# I used more layers than necessary initially. 
 #
 RUN sh -c 'echo deb http://debs.auth0.com/ stable main > /etc/apt/sources.list.d/auth0.list' 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv F63E3D3A 
-RUN apt-get update 
-RUN apt-get install -y   limitd
+RUN apt-get update && apt-get install -y limitd
 
 ENV PATH="/opt/auth0/node-v4.4.4-linux-x64/bin:${PATH}"
 ENV PATH="/opt/auth0/limitd/bin:${PATH}"
