@@ -15,7 +15,7 @@ ENV PATH="/opt/auth0/limitd/bin:${PATH}"
 
 EXPOSE 9001:9001
 
-CMD ["limitd --config-file /etc/limitd.conf"]
+CMD ["limitd","--config-file","/etc/limitd.conf"]
 
 
 
